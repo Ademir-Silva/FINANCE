@@ -1,0 +1,109 @@
+/*=========== PARAMETROS GLOBAIS */
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+:root{
+  --green: #36E448;
+}
+
+html{
+   font-size: 93.75%;
+}
+
+body{
+  background: #0B0A0A;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, p{
+    color: white;
+}
+
+
+/*=========== HEADER */
+
+header{
+  margin: 2%;
+  text-align: center;
+}
+
+
+h1{
+  font-weight: 600;
+  text-align: justify;
+}
+
+
+/*=========== CONTAINER */
+.container{
+  width: min(90vw, 1100px);
+  margin: 6rem auto;
+
+  display: flex;
+  align-items: center;
+}
+
+
+/*=========== MAIN */
+
+main{
+  //padding-right: 5rem;
+  margin-right: 10rem; 
+}
+
+.spot-bg{
+  position: absolute;
+  width: 436.49px;
+  height: 611.48px;
+  right: 170px;
+  top: 120px;
+
+
+  background: rgba(196, 196, 196, 0.02);
+  border-radius: 291px;
+  transform: rotate(-77.46deg);
+}
+
+
+/*=========== TEXTS */
+p.text{
+  font-weight: 200;
+  margin: 1rem 0;
+  text-align: justify;
+}
+
+b.text-green{
+  color: var(--green);
+}
+
+
+/*=========== MEDIAS */
+
+/*====== MAX */
+@media (max-width: 800px){
+
+  h1{
+    font-size: 1.7rem;
+    text-align: center;
+    margin: .7rem 0 2.4rem 0 ;
+  }
+
+  main{
+    margin: 0;
+  }
+
+  .image-graphic{
+    display: none;
+  }
+
+  p.text{
+    font-size: 1.15rem;
+    text-align: justify;
+  }
+}
+
+
+/*====== MIN */
+
+
+
