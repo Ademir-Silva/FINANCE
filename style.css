@@ -11,8 +11,9 @@ html{
 }
 
 body{
-  background: #0B0A0A;
+  background-color: #0B0A0A;
   font-family: 'Poppins', sans-serif;
+
 }
 
 h1, p{
@@ -30,16 +31,18 @@ header{
 
 h1{
   font-weight: 600;
-  text-align: justify;
+  text-align: left;
+  font-size: 2.6rem;
 }
 
 
 /*=========== CONTAINER */
 .container{
-  width: min(90vw, 1100px);
-  margin: 6rem auto;
+  width: min(90vw, 1200px);
+  margin: 5rem auto 2rem;
 
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -50,25 +53,13 @@ main{
   margin-right: 10rem; 
 }
 
-.spot-bg{
-  position: absolute;
-  width: 436.49px;
-  height: 611.48px;
-  right: 170px;
-  top: 120px;
-
-
-  background: rgba(196, 196, 196, 0.02);
-  border-radius: 291px;
-  transform: rotate(-77.46deg);
-}
-
 
 /*=========== TEXTS */
 p.text{
   font-weight: 200;
   margin: 1rem 0;
   text-align: justify;
+  font-size: 1.3rem;
 }
 
 b.text-green{
@@ -76,15 +67,60 @@ b.text-green{
 }
 
 
+/*=========== BUTTONS */
+.buttons{
+  width: min(100vw, 900px);
+  margin: 1rem auto;
+
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button.sign-in,
+button.sign-up{
+  width: 40%;
+  padding: 1rem;
+
+  border: none;
+  border-radius: .5rem;
+
+  font-size: 1.3rem;
+  color: white;
+  cursor: pointer;
+ 
+}
+
+button.sign-in{
+  background: #29BC64;
+  
+}
+
+button.sign-up{
+  background: #1F74D8;
+}
+
+button.sign-in:hover{
+  background: rgb(51, 160, 94);
+  transition: .4s;
+}
+
+button.sign-up:hover{
+  background: rgb(13, 83, 163);
+  transition: .4s;
+}
+
+
 /*=========== MEDIAS */
 
 /*====== MAX */
-@media (max-width: 800px){
+@media (max-width: 900px){
 
   h1{
-    font-size: 1.7rem;
+    font-size: 1.78rem;
     text-align: center;
-    margin: .7rem 0 2.4rem 0 ;
+    margin: 0 0 2.2rem 0 ;
   }
 
   main{
@@ -96,13 +132,25 @@ b.text-green{
   }
 
   p.text{
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     text-align: justify;
+  }
+
+  .buttons{
+    display: flex;
+    flex-direction:column;
+  }
+
+  button.sign-in,
+  button.sign-up{
+    width: 80%;
+    margin: 7px 0;
   }
 }
 
-
 /*====== MIN */
-
-
+/* .buttons{
+  display: flex;
+  flex-direction:column;
+} */
 
