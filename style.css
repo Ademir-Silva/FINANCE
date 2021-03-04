@@ -84,6 +84,11 @@ b.text-green{
   z-index:  -1;
 }
 
+button{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
 
 /*=========== BUTTONS */
 .buttons{

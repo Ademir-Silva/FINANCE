@@ -2,26 +2,56 @@
 
 *{margin: 0; padding: 0; box-sizing: border-box;}
 
+
 html{
     font-size: 93.75%;
 }
  
  body{
    background-color: #0B0A0A;
-   font-family: 'Poppins', sans-serif;
+   font-family: 'Roboto', sans-serif;
+
+
+   display: flex;
+   flex-direction: column;
    /* height:  100vh; */
  }
 
 
-h1, p{
+p, a{
     color: white;
+}
+
+h1{
+    color: #eeebeb;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(17, 153, 40);
+
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+
+a:hover{
+    color: rgb(20, 200, 50);
+    transition: .4s;
+}
+
+p{
+    font-weight: 200;
 }
 
 
 /*=========== CONTAINER */
 .container{
-    width: min(100vw, 900px);
-    margin: 4rem auto;
+    width: min(90vw, 1200px);
+    margin: 50px auto;
 
     display: flex;
     justify-content: space-between;
@@ -30,17 +60,109 @@ h1, p{
 
 .finance{
     position: relative;
-    right: 2px;
-    bottom: 0px;
+    z-index: 1;
+    bottom: 100px;
+    flex-direction: column
+}
+
+.finance img{
+    width: 250px;
 }
 
 
 /*=========== FORM */
 form{
     background: rgb(34, 34, 34);
+    border-radius: 6px;
     
-    width: 50%;
-    height: 80vh;
+    padding: 4.5rem 3.7rem;
+    width: 800px;
+    height: 450px;
+    max-width: 450px;
+
+    display: flex;
+    flex-direction: column;
 }
+.input{
+    position: relative;
+    margin-bottom: 10px;
+}
+
+input{
+    padding: 1rem;
+    font-size: 12pt;
+}
+
+input, button{
+    /* Reset appearance */
+  
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    
+    width: 100%;
+    /* padding: .7rem 10px; */
+  
+    /* border: none; */
+    border-radius: .4rem;
+    border: .2rem solid rgba(0, 0, 0, 0.007);
+  
+    color: white;
+    background: rgb(24, 24, 24);
+  
+    outline: none;
+  }
+  
+  button{
+    background: rgb(31, 182, 51);
+    
+    margin-top: 8px;
+    padding: 1rem 0;
+    
+    font-size: 12pt;
+    font-weight: 600;
+    cursor: pointer; 
+  }
+
+  button:hover{
+    background: rgb(22, 143, 38);
+    transition: .5s;
+  }
+  
+
+  input:focus{
+    border-color: rgb(60, 66, 119);
+    transition:ease-out .5s;
+  }
+
+  .lines{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .line{
+    background: rgba(255, 255, 255, 0.061);
+
+    width: 9.8rem;
+    height: .12rem;
+  }
+
+.forgot-password{
+    margin-bottom: 1.1rem;
+}
+
+.sign-up{
+    margin: 1.3rem 0;
+    text-align: center;
+}
+
+.login-google{
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
 
 
