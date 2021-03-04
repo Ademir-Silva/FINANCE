@@ -49,30 +49,6 @@ h1{
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.wave{
-  background: transparent;
-  position: relative;
-}
-
-.wave::before{
-  position: absolute;
-  z-index: -1;
-  content: '';
-  width: 100%;
-  height: 250px;
-  background:  url(../assets/vetor-3.svg);
-  background-repeat: no-repeat;
-  background-size: cover;  
-}
-
-.content-w{
-  position: relative;
-  background: rgb(255, 255, 255);
-  width: 100%;
-  height: 100vh;
-  top: 250px;
 } 
 
 .line{
@@ -86,7 +62,6 @@ h1{
 }
 
 /*=========== MAIN */
-
 main{
   margin-right: 10rem; 
 }
@@ -154,6 +129,39 @@ b.text-green{
   transition: .4s;
 }
 
+/*=========== SECTION 2 */
+.wave{
+  background: transparent;
+  position: relative;
+}
+
+.wave::before{
+  position: absolute;
+  z-index: -1;
+  content: '';
+  width: 100%;
+  height: 250px;
+  background:  url(../assets/vetor-3.svg);
+  background-repeat: no-repeat;
+  background-size: cover;  
+}
+
+.content-wave{
+  position: relative;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  height: 100vh;
+  top: 250px;
+}
+
+div.img-section-2{
+  text-align: center;
+  
+  position: relative;
+  bottom: 8.3rem;
+  z-index: -1;
+}
+
 
 /*=========== MEDIAS */
 
@@ -189,6 +197,8 @@ b.text-green{
     width: 80%;
     margin: 7px 0;
   }
+
+
 }
 
 /*====== MIN */

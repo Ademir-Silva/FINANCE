@@ -1,0 +1,46 @@
+/*=========== PARAMETROS GLOBAIS */
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+html{
+    font-size: 93.75%;
+}
+ 
+ body{
+   background-color: #0B0A0A;
+   font-family: 'Poppins', sans-serif;
+   /* height:  100vh; */
+ }
+
+
+h1, p{
+    color: white;
+}
+
+
+/*=========== CONTAINER */
+.container{
+    width: min(100vw, 900px);
+    margin: 4rem auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.finance{
+    position: relative;
+    right: 2px;
+    bottom: 0px;
+}
+
+
+/*=========== FORM */
+form{
+    background: rgb(34, 34, 34);
+    
+    width: 50%;
+    height: 80vh;
+}
+
+
