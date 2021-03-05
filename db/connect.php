@@ -3,8 +3,12 @@
     $server = "localhost";
     $user = "root";
     $password = "";
-    $dbName = "finance";
+    $db_name = "finance";
 
-    $conn = mysqli_connect($server, $user, $password, $dbName);
+    $connect = mysqli_connect($server, $user, $password, $db_name);
+
+    if(mysqli_connect_error()):
+        echo "Falha na conexão!!".mysqli_connect_error();
+    endif;
 
 ?>

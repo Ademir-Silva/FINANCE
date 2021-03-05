@@ -1,26 +1,24 @@
-<?php 
+<?php
+ session_start(); 
+/* ob_start(); */
 
-    require_once '../db/connect.php';
+/* $button_register = filter_input(INPUT_POST, 'button_register', FILTER_SANITIZE_STRING);
 
-    session_start();
+if($button_register){
+    
+    include_once '../db/connect.php';
+    $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-    if(isset($_POST['enter'])):
-        $erros = array();
+    $data['pass'] = password_hash($data['pass'], PASSWORD_DEFAULT );
 
-        $email = mysqli_escape_string($connect, $_POST['email']);
-        $password = mysqli_escape_string($connect, $_POST['pass']);
+    $return = "INSERT INTO users (email, name, password) VALUES ('".$data['email']."', '".$data['name']."', 
+    '".$data['pass']."' )" ;
 
-        if(empty($email) or empty($senha)):
-            $erros[] = "<span style=' color: white;
-            padding: 20px;
-            background:  rgb(188, 33, 33);
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            font-size: 15pt;'>O campo email/senha precesa ser preenchido !!! <span>";
-        else:    
-    endif;   
+    $result =  mysqli_query($conn, $return);
+}
+ */
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,9 +27,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar | FINANCE</title>
+    <title>Cadastre-se | FINANCE</title>
 
-    <link rel="stylesheet" href="../css/sign-in.css">
+    <link rel="stylesheet" href="../css/register.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -46,32 +44,18 @@
 
 <body>
 
-<header>
- <?php
-    
-    if(!empty($erros)):
-        foreach($erros as $erro):
-            echo $erro;
-        endforeach;        
-    endif;
-    
-   /*      if(isset($_SESSION['message']))
-            echo $_SESSION['message'];
-            unset($_SESSION['message']); */
-    ?>
-</header>
-
-    <div class="finance">
-        <img src="../assets/FINANCE.svg">
-    </div>
-
     <div class="container">
-        <h1>Faça seu login <br/> na plataforma!</h1>
+        <h1>Registre seu cadastro<br/> na plataforma!</h1>
 
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+        <form action="../pages/process.php" method="POST">
 
             <div class="input">
                 <input required type="email" name="email" id="email" placeholder="Email">            
+                <span class="error"></span>
+            </div>
+
+            <div class="input">
+                <input required type="text" name="name" id="name" placeholder="Nome">            
                 <span class="error"></span>
             </div>
 
@@ -80,15 +64,12 @@
                 <span class="error"></span>
             </div>
 
-            <div class="forgot-password">
-                <a href="#">Esqueci minha senha</a>
-            </div>
 
-            <button type="submit" name="enter">ENTRAR</button>
+            <button type="submit" name="button_register">CADASTRAR</button>
 
 
-            <div class="sign-up">
-                <p>Não tem uma conta? <a href="../pages/register.php">Registre-se!</a> </p>
+            <div class="sign-in">
+                <p>Já tem uma conta? <a href="../pages/sign-in.php">Logar</a></p>
             </div>
 
             <div class="lines">
@@ -102,6 +83,10 @@
             </div>
 
         </form>
+
+       <!--  <span class="msg">
+        <p id="msg"></p>
+    </span> -->
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

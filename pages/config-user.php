@@ -6,7 +6,7 @@ include_once("../db/connect.php");
 
 $email = filter_input(INPUT_POST, 'userEmail', FILTER_SANITIZE_STRING);
 
-$result= "SELECT * FROM loginUser WHERE email='$email' LIMIT 1";
+$result= "SELECT * FROM users WHERE email='$email' ";
 $result_user = mysqli_query($conn, $result);
 
 if(($result_user) AND ($result_user->num_rows != 0)){
