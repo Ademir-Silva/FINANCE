@@ -158,10 +158,14 @@ input, button{
 }
 
 .login-google{
-    margin: 40px auto;
     display: flex;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
+    padding: 25px 10px;
+}
+
+.g-signin2.edit{
+    background: rgb(128, 8, 8)
 }
 
 

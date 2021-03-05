@@ -140,7 +140,7 @@ button{
   position: relative;
 }
 
-.wave::before{
+.wave{
   position: absolute;
   z-index: -1;
   content: '';
