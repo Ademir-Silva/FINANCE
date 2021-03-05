@@ -1,5 +1,4 @@
 <?php 
-
     require_once '../db/connect.php';
 
     session_start();
@@ -10,21 +9,53 @@
         $email = mysqli_escape_string($connect, $_POST['email']);
         $password = mysqli_escape_string($connect, $_POST['pass']);
 
-        if(empty($email) or empty($senha)):
+        if(empty($email) or empty($password)):
             $erros[] = "<span style=' color: white;
             padding: 20px;
             background:  rgb(188, 33, 33);
             width: 100%;
             display: flex;
             justify-content: center;
-            font-size: 15pt;'>O campo email/senha precesa ser preenchido !!! <span>";
-        else:    
+            font-size: 15pt;'>O campo email/senha precisa ser preenchido !!! <span>";
+        else:
+            $sql = "SELECT email FROM users WHERE email = '$email' ";
+            $result = mysqli_query($connect, $sql);
+
+            if(mysqli_num_rows($result) > 0):
+                $password = md5($password);
+                $sql = "SELECT * FROM users WHERE email =  '$email' AND password = '$password' ";
+                $result = mysqli_query($connect, $sql);
+
+                    if(mysqli_num_rows($result) == 1):
+                        $data = mysqli_fetch_array($result);
+                        $_SESSION['log'] = true;
+                        $_SESSION['id_user'] = $data['id'];
+                        header('Location: ../pages/painel.php');
+                    else:
+                        $erros[] = "<span style=' color: white;
+                            padding: 20px;
+                            background:  rgb(188, 33, 33);
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            font-size: 15pt;'>Usuário e senha não conferem!!<span>";
+                    endif; 
+
+            else:
+                $erros[] = "<span style=' color: white;
+                padding: 20px;
+                background:  rgb(188, 33, 33);
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                font-size: 15pt;'>Usuário inexistente!!!<span>";
+            endif;
+        endif;    
     endif;   
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,11 +70,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">  
 
     <meta name="google-signin-client_id" content="29031214912-fpofigi6l7aiiuie8ia00v0036q7fo0s.apps.googleusercontent.com">
-
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 </head>
-
 <body>
 
 <header>
@@ -55,15 +84,8 @@
         endforeach;        
     endif;
     
-   /*      if(isset($_SESSION['message']))
-            echo $_SESSION['message'];
-            unset($_SESSION['message']); */
-    ?>
+?>
 </header>
-
-    <div class="finance">
-        <img src="../assets/FINANCE.svg">
-    </div>
 
     <div class="container">
         <h1>Faça seu login <br/> na plataforma!</h1>

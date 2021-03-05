@@ -1,12 +1,6 @@
 <?php 
 
-
-
-
-
-
-/* session_start();
-
+session_start();
 include_once('../db/connect.php');
 
 
@@ -14,16 +8,11 @@ $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
 $password = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING);
 $password = password_hash($password, PASSWORD_DEFAULT );
-$enter = $_POST['enter'];
 
 $insert_db_user = "INSERT INTO users (email, name, password) VALUES ('$email', '$name', '$password')";
-$return_user = mysqli_query($conn, $insert_db_user);
+$return_user = mysqli_query($connect, $insert_db_user);
 
-if(isset($enter)){
-    $verify = mysqli_query("SELECT * FROM users WHERE email = '$email' AND password = '$password' ") or die("erro");
-}
-
-if(mysqli_insert_id($conn)){
+if(mysqli_insert_id($connect)){
     $_SESSION['message'] = "<span style=' color: white;
     padding: 20px;
     background: #38af38;
@@ -31,7 +20,7 @@ if(mysqli_insert_id($conn)){
     display: flex;
     justify-content: center;
     font-size: 15pt;'>Cadastro efetuado com sucesso !!! <span>";
-    header("location: ../pages/sign-in.php");
+    header("Location: ../pages/sign-in.php");
 }else{
 
     $_SESSION['message'] = "<span style=' color: white;
@@ -43,5 +32,5 @@ if(mysqli_insert_id($conn)){
     font-size: 15pt;'>Cadastro não foi efetuado com sucesso !!! <span>";
     header("location: ../pages/register.php");
 }
- */
 
+?>
