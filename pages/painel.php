@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,7 +21,7 @@
 <body>
 
     <header>
-        <img src="../assets/Logo.svg" alt="Logo Finance">
+        <img src="../assets/logo.svg" alt="Logo Finance">
         
         <div class="exit">
             <a href="../pages/sign-in.php" onclick="signOut();"><img src="../assets/exit.svg"></a>

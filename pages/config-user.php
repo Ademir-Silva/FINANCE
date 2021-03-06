@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+/* session_start();
 
 include_once("../db/connect.php"); 
 
@@ -17,5 +17,5 @@ if(($result_user) AND ($result_user->num_rows != 0)){
 }else{
     $resulted = 'Erro';
     echo (json_encode($resulted));
-}
+} */
 

@@ -1,22 +1,50 @@
-<?php
- session_start(); 
-/* ob_start(); */
+<?php 
+    require_once '../db/connect.php';
+    session_start();
 
-/* $button_register = filter_input(INPUT_POST, 'button_register', FILTER_SANITIZE_STRING);
+    if(isset($_POST['register'])):
+        $erros = array();
 
-if($button_register){
-    
-    include_once '../db/connect.php';
-    $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        $email = mysqli_escape_string($connect,$_POST['email']);
+        $name = mysqli_escape_string($connect,$_POST['name']);
+        $password = mysqli_escape_string($connect,$_POST['pass']);
+        $password = md5($password);
 
-    $data['pass'] = password_hash($data['pass'], PASSWORD_DEFAULT );
+        if(empty($email) or empty($password)):
+            $erros[] = "<span style=' color: white;
+            padding: 20px;
+            background:  rgb(188, 33, 33);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            font-size: 15pt;'>Todos os campos precisam ser preenchido !!! <span>";
+        else:
+            $sql = "INSERT INTO users (email, name, password) VALUES ('$email', '$name', '$password')";
+            $result = mysqli_query($connect, $sql);
 
-    $return = "INSERT INTO users (email, name, password) VALUES ('".$data['email']."', '".$data['name']."', 
-    '".$data['pass']."' )" ;
+            if($result):       
+                //$data = mysqli_fetch_array($result);
+                $_SESSION['register'] = true;
+                $_SESSION['message'] = "<span style='color: white;
+                        padding: 20px;
+                        background: #38af38;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        font-size: 15pt;'>Cadastro efetuado com sucesso !!! <span>";
+                        header('Location: ../pages/sign-in.php');
 
-    $result =  mysqli_query($conn, $return);
-}
- */
+            else:
+                $erros[] = "<span style=' color: white;
+                padding: 20px;
+                background:  rgb(188, 33, 33);
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                font-size: 15pt;'>Usuário já existe !!!<span>";
+            endif;
+        endif;    
+    endif;   
 ?>
 
 
@@ -44,10 +72,22 @@ if($button_register){
 
 <body>
 
+<header>
+ <?php
+    
+    if(!empty($erros)):
+        foreach($erros as $erro):
+            echo $erro;
+        endforeach;
+    endif;
+
+?>
+</header>
+
     <div class="container">
         <h1>Registre seu cadastro<br/> na plataforma!</h1>
 
-        <form action="../pages/process.php" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
             <div class="input">
                 <input required type="email" name="email" id="email" placeholder="Email">            
@@ -60,12 +100,12 @@ if($button_register){
             </div>
 
             <div class="input">   
-                <input riquired type="password" name="pass" id="pass" placeholder="Senha">              
+                <input required type="password" name="pass" id="pass" placeholder="Senha">              
                 <span class="error"></span>
             </div>
 
 
-            <button type="submit" name="button_register">CADASTRAR</button>
+            <button type="submit" name="register">CADASTRAR</button>
 
 
             <div class="sign-in">
@@ -83,10 +123,6 @@ if($button_register){
             </div>
 
         </form>
-
-       <!--  <span class="msg">
-        <p id="msg"></p>
-    </span> -->
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -1,5 +1,5 @@
 <?php 
-
+/* 
 session_start();
 include_once('../db/connect.php');
 
@@ -32,5 +32,5 @@ if(mysqli_insert_id($connect)){
     font-size: 15pt;'>Cadastro não foi efetuado com sucesso !!! <span>";
     header("location: ../pages/register.php");
 }
-
+ */
 ?>

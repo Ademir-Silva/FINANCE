@@ -1,6 +1,5 @@
 <?php 
     require_once '../db/connect.php';
-
     session_start();
 
     if(isset($_POST['enter'])):
@@ -17,13 +16,14 @@
             display: flex;
             justify-content: center;
             font-size: 15pt;'>O campo email/senha precisa ser preenchido !!! <span>";
+
         else:
             $sql = "SELECT email FROM users WHERE email = '$email' ";
             $result = mysqli_query($connect, $sql);
 
             if(mysqli_num_rows($result) > 0):
                 $password = md5($password);
-                $sql = "SELECT * FROM users WHERE email =  '$email' AND password = '$password' ";
+                $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' ";
                 $result = mysqli_query($connect, $sql);
 
                     if(mysqli_num_rows($result) == 1):
@@ -81,8 +81,14 @@
     if(!empty($erros)):
         foreach($erros as $erro):
             echo $erro;
-        endforeach;        
+        endforeach;
     endif;
+
+    if(isset($_SESSION['message'])):
+        echo $_SESSION['message'];
+    endif;
+
+    session_unset();
     
 ?>
 </header>

@@ -13,4 +13,8 @@
 
 ## Planejamento
 
--   O então projeto se deu início durante a matéria de <i>Desenvolvimento Web</i>, que foi ministrada por <a href="#">Eu</a> @demirsillva
+-   O então projeto deu início durante a disciplina de <i>Desenvolvimento Web</i> da minha faculdade. Levando em conta o pouco tempo/velocidade da matéria e outros deveres pessoais, tive um tempo para pensar como tirar a ideia da mente, por no papel e depois criar uma imagem gráfica de como poderia ficar.
+
+# RESULTADO
+
+- Para a matéria de *Desenvolvimento Web*, foi conclído. E por mais que não tenha ficado da forma como esperei, tenho em minha sã consciência de ter feito um bom trabalho, onde pude compreender e aprender a manusear novas ferramentas, utilizar na prática meus conhecimentos sobre <b>*Clean Code*</b> entre outras coisas aprendidas.

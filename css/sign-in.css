@@ -51,7 +51,7 @@ p{
 /*=========== CONTAINER */
 .container{
     width: min(90vw, 1200px);
-    margin: 8.5rem auto;
+    margin: 4rem auto;
 
     display: flex;
     justify-content: space-between;
